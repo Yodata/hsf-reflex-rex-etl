@@ -2,10 +2,10 @@
   "name": "@yodata/hsf-reflex-rex-etl",
   "version": "0.0.1",
   "description": "process reflex messages into REX project",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "DEBUG=poller node app"
+    "start": "DEBUG=poller node index"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "auto-bind": "^1.1.0",
     "axios": "^0.17.1",
     "debug": "^3.1.0",
+    "dotenv": "^6.0.0",
     "lodash.defaults": "^4.2.0",
     "lodash.get": "^4.4.2",
     "yodata-inbox-poller": "^0.2.4"

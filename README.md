@@ -7,6 +7,8 @@ process reflex messages into REX project
 $ git clone yodata/hsf-reflex-rex-etl
 
 $ cd hsf-reflex-rex-etl
+
+$ npm install
 ```
 
 ## Environment Setup
