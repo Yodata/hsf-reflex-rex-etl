@@ -24,7 +24,8 @@
     "axios": "^0.17.1",
     "debug": "^3.1.0",
     "lodash.defaults": "^4.2.0",
-    "lodash.get": "^4.4.2"
+    "lodash.get": "^4.4.2",
+    "yodata-inbox-poller": "^0.2.4"
   },
   "devDependencies": {
     "expect": "^22.0.3",
