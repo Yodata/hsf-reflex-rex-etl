@@ -1,14 +1,15 @@
 # hsf-reflex-rex-etl
+
 process reflex messages into REX project
 
 ## Installation
 
 ```bash
-$ git clone yodata/hsf-reflex-rex-etl
+> git clone yodata/hsf-reflex-rex-etl
 
-$ cd hsf-reflex-rex-etl
+> cd hsf-reflex-rex-etl
 
-$ npm install
+> npm install
 ```
 
 ## Environment Setup
@@ -16,9 +17,9 @@ $ npm install
 Make sure your environment has the API key and source inbox URL
 
 ```bash
-$ export YODATA_API_KEY=xxxx
+> export YODATA_API_KEY=xxxx
 
-$ export YODATA_INBOX_URL=https://test.example.com/inbox/
+> export YODATA_INBOX_URL=https://test.example.com/inbox/
 ```
 
 ## Write your handler function (example)
