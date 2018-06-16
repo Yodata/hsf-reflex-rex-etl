@@ -20,6 +20,9 @@ test('sendLead resolves', async () => {
 test('postMessage fails if wrong url', (done) => {
   let shouldFail = client.postMessage('badtopic')
   shouldFail({})
+    .then(() => {
+      throw new Error('didnt fail')
+    })
     .catch(() => {
       done()
     })

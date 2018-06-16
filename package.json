@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npx jest",
-    "start": "DEBUG=rex node index"
+    "start": "DEBUG=rex* node index",
+    "coverage": "npx jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,7 @@
   },
   "homepage": "https://github.com/Yodata/hsf-reflex-rex-etl#readme",
   "dependencies": {
-    "@yodata/event-router": "^0.2.5",
+    "@yodata/event-router": "^0.2.6",
     "assert-plus": "^1.0.0",
     "async": "^2.6.0",
     "auto-bind": "^1.1.0",
@@ -29,7 +30,6 @@
     "jsforce": "^1.8.4",
     "lodash.defaults": "^4.2.0",
     "lodash.get": "^4.4.2",
-    "node-salesforce": "^0.8.0",
     "request": "^2.87.0",
     "yodata-inbox-poller": "^0.2.4"
   },

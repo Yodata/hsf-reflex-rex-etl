@@ -9,15 +9,15 @@ const postMessage = topic => message => {
   return new Promise((resolve, reject) => {
     conn.login(username, password, (err) => {
       if (err) {
-        debug('salesforce:login:error', err)
+        debug('error:login', err)
         reject(err)
       } else {
         conn.apex.post(topic, message, (err, res) => {
           if (err) {
-            debug('apex:post:error', err)
+            debug('error:postMessage', err)
             reject(err)
           } else {
-            debug('apex:post:success', {topic, message})
+            debug('postMessage', {topic, message})
             resolve(res)
           }
         })

@@ -6,7 +6,7 @@ const debug = require('debug')('rex')
 const app = Service.create(process.env.YODATA_INBOX_URL, handleMessage)
 
 app.on('message:process:completed', event => {
-  debug('success', event)
+  debug('success', event.object.instrument)
 })
 
 app.on('message:process:failed', event => {

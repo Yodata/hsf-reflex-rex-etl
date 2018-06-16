@@ -1,5 +1,5 @@
 const sf = require('../salesforce-client')
-const debug = require('debug')
+const debug = require('debug')('rex:ask-action')
 const getProp = require('lodash.get')
 
 module.exports = async function (event) {
@@ -13,6 +13,6 @@ module.exports = async function (event) {
       Message: getProp(event, 'object.description') }
   }
   return sf.sendLead(leadNotification)
-    .then(res => debug('success:askaction')(res))
-    .catch(err => debug('error:askaction')(err))
+    .then(res => debug('success', res))
+    .catch(err => debug('error', err))
 }
