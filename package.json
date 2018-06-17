@@ -2,10 +2,12 @@
   "name": "@yodata/hsf-reflex-rex-etl",
   "version": "0.0.1",
   "description": "process reflex messages into REX project",
-  "main": "index.js",
+  "bin": {
+    "doctor": "./bin/doctor.js"
+  },
   "scripts": {
+    "start": "node -r dotenv/config server.js",
     "test": "npx jest",
-    "start": "DEBUG=rex* node index",
     "coverage": "npx jest --coverage"
   },
   "repository": {
@@ -19,7 +21,7 @@
   },
   "homepage": "https://github.com/Yodata/hsf-reflex-rex-etl#readme",
   "dependencies": {
-    "@yodata/event-router": "^0.2.6",
+    "@yodata/event-router": "^0.2.9",
     "assert-plus": "^1.0.0",
     "async": "^2.6.0",
     "auto-bind": "^1.1.0",
