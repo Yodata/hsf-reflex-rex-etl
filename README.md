@@ -2,7 +2,9 @@
 
 process reflex messages into REX project
 
-## Installation
+## Get Started
+
+### Install
 
 ```bash
 > git clone yodata/hsf-reflex-rex-etl
@@ -12,26 +14,45 @@ process reflex messages into REX project
 > npm install
 ```
 
-## Environment Setup
+### Environment Setup
 
-Make sure your environment has the API key and source inbox URL
+The service requires the following environment variables.
+To set your environment, create a .env file in the project root with your information.
 
 ```bash
-> export YODATA_API_KEY=xxxx
-
-> export YODATA_INBOX_URL=https://test.example.com/inbox/
+# .env file
+YODATA_API_KEY="your_api_key"
+YODATA_INBOX_URL="https://dave.yodata.me/inbox/"
+SALESFORCE_USERNAME="user@example.com"
+SALESFORCE_PASSWORD="salesforce-password"
+SALESFORCE_LOGIN_URL="https://test.salesforce.com"
+DEBUG="hsf-reflex-rex:*"
+DEBUG_DEPTH=1
 ```
 
-## Write your handler function (example)
+### Service Control
 
-```js
-// file: handleMessage.js
-module.exports = async function handleMessage (notification) {
-  console.dir(notification)
-  
-  // do some work
-  
-  return {} // any result you return will be logged to the event log
-}
+```bash
+# start the service locally
+> npm start
+# run tests
+> npm test
+# run tests with coverage
+> npm run coverage
+```
 
+## Development
+
+### Project Files
+
+```bash
+.
+|- server.js                    # loads environment and starts the service
+|- .env                         # environment vars
+|- app
+   |- index.js                  # configure the service
+   |- router.js                 # configure event routes and handlers (main)
+   |- sendLeadToSalesForce.js   # sends leads to SF
+   |- hander                    # event handlers go here
+      |- askaction.js           # basic event handler
 ```
