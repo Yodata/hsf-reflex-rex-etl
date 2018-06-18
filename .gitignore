@@ -61,3 +61,6 @@ typings/
 .idea/
 .vscode/
 
+# jsdocs
+docs/
+

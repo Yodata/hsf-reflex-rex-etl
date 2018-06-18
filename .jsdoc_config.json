@@ -1,0 +1,12 @@
+{
+    "opts": {
+        "destination": "./docs/",
+        "recurse": true
+    },
+    "source": {
+        "include": [
+            "server.js",
+            "app"
+        ]
+    }
+}

@@ -53,6 +53,6 @@ DEBUG_DEPTH=1
    |- index.js                  # configure the service
    |- router.js                 # configure event routes and handlers (main)
    |- sendLeadToSalesForce.js   # sends leads to SF
-   |- hander                    # event handlers go here
+   |- handler                   # event handlers go here
       |- askaction.js           # basic event handler
 ```

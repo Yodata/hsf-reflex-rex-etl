@@ -8,7 +8,8 @@
   "scripts": {
     "start": "node -r dotenv/config server.js",
     "test": "npx jest",
-    "coverage": "npx jest --coverage"
+    "coverage": "npx jest --coverage",
+    "docs": "npx jsdoc -c .jsdoc_config.json"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,7 @@
   "devDependencies": {
     "@types/eslint": "^4.16.2",
     "@types/jest": "^23.1.0",
+    "docco": "^0.8.0",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.12.0",
