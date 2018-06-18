@@ -27,6 +27,7 @@ router.addHook('beforeAction', async message => {
 })
 
 /** adds a route handler for events that with type: AskAction */
-router.add({ type: 'AskAction' }, require('./handler/askaction'))
+router.add({ type: 'AskAction' }, require('./handler/ask_action'))
+router.add({ type: 'AddAction' }, require('./handler/add_action'))
 
 module.exports = router

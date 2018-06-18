@@ -46,7 +46,6 @@ module.exports = async function handleAskAction (action) {
     HSFId: getProp(action, 'recipient.identifier.thirdPartyID'),
     FirstName: getProp(action, 'agent.givenName'),
     LastName: getProp(action, 'agent.familyName'),
-    EmailAddress: getProp(action, 'agent.email'),
     Phone: getProp(action, 'agent.telephone'),
     Message: getProp(action, 'description')
   }

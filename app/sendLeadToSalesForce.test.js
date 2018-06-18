@@ -21,7 +21,6 @@ test('sendLeadToSalesForce sends the lead to Sales Force', async () => {
     HSFId: '12345',
     FirstName: 'Alice',
     LastName: 'Agent',
-    EmailAddress: 'alice@example.com',
     Phone: '867-5309',
     Message: 'carpe diem'
   }
