@@ -7,7 +7,7 @@ const app = require('./app')
 
 /**
  * Fires when a message has been successfully processed
- * @event App#message:process:completed
+ * @event App#message:process:completed - message has been processed
  */
 app.on('message:process:completed', event => {
   log('IT WORKED!!!', event.result)
@@ -16,6 +16,10 @@ app.on('message:process:completed', event => {
 /**
  * Fires when message processing fails
  * @event App#message:process:failed
+ * @type {object}
+ * @property {string} message - the error message
+ * @property {Object} object - the message being processed type=Notification
+ * @property {Object} result - the result response or error
  */
 app.on('message:process:failed', event => {
   let get = require('lodash.get')
