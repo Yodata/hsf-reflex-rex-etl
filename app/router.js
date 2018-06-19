@@ -3,31 +3,28 @@
  * @instance
  */
 const EventRouter = require('@yodata/event-router')
+const sendLeadToSalesForce = require('./sendLeadToSalesForce')
 
 /** configure router */
 const router = new EventRouter()
 
-/**
- * If message.type === Notification ; returns the message.object the primary event
- * @param {object} message
- * @return {object} Notification.object
- * @example
- * let notification = { type: Notification, object: { type: AskAction, ... } }
- * let result = getEventFromNotification(notification)
- * // result = { type: AskAction, ... }
- */
-router.addHook('beforeRoute', message => {
+/** gets message<Notification>.object or message */
+router.addHook('beforeRoute', async message => {
   return (message && message.type === 'Notification') ? message['object'] : message
 })
 
-/**  */
-router.addHook('beforeAction', async message => {
-  if (!router.hasRoute(message)) throw new Error(`EVENT_TYPE_UNMATCHED`)
-  return message
+/** log error if no matching handler was found  */
+router.addHook('beforeAction', async event => {
+  if (!router.hasRoute(event)) throw new Error(`EVENT_TYPE_UNMATCHED`)
+  return event
 })
 
-/** adds a route handler for events that with type: AskAction */
-router.add({ type: 'AskAction' }, require('./handler/ask_action'))
-router.add({ type: 'AddAction' }, require('./handler/add_action'))
+router.addHook('afterAction', async result => {
+  return sendLeadToSalesForce(result)
+})
+
+/** routes transform actions to SalesForce#Lead */
+router.add({ type: 'AskAction' }, require('./handle/ask_action'))
+router.add({ type: 'AddAction' }, require('./handle/add_action'))
 
 module.exports = router

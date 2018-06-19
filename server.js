@@ -1,7 +1,7 @@
 /**
  * @file configure service and logging
  */
-const log = require('debug')('hsf-reflex-rex-etl:success!')
+const log = require('debug')('hsf-reflex-rex-etl:sent-to-salesforce')
 const logError = require('debug')('hsf-reflex-rex-etl:error')
 const app = require('./app')
 
@@ -10,7 +10,7 @@ const app = require('./app')
  * @event App#message:process:completed - message has been processed
  */
 app.on('message:process:completed', event => {
-  log('IT WORKED!!!', event.result)
+  log(event.result)
 })
 
 /**
@@ -22,10 +22,11 @@ app.on('message:process:completed', event => {
  * @property {Object} result - the result response or error
  */
 app.on('message:process:failed', event => {
-  let get = require('lodash.get')
-  let message = get(event, 'message', 'message:process:failed')
-  let actionType = get(event, 'object.object.type', 'event type unknown')
-  logError(message, actionType)
+  if (event.message === 'EVENT_TYPE_UNMATCHED') {
+    logError(`EVENT_TYPE_UNHANDLED: ${event.object.object.type}`)
+  } else {
+    logError(event)
+  }
 })
 
 app.start()

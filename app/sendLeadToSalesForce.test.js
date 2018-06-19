@@ -1,5 +1,6 @@
 const config = require('dotenv').config()
 const sendLeadToSalesForce = require('./sendLeadToSalesForce')
+const salesForceLead = require('./handle/sales_force_lead')
 
 test('environment contains SALESFORCE_USERNAME', () => {
   expect(config.parsed).toHaveProperty('SALESFORCE_USERNAME')
@@ -24,5 +25,5 @@ test('sendLeadToSalesForce sends the lead to Sales Force', async () => {
     Phone: '867-5309',
     Message: 'carpe diem'
   }
-  await expect(sendLeadToSalesForce(exampleLead)).resolves.toMatchObject(exampleLead)
+  await expect(sendLeadToSalesForce(exampleLead)).resolves.toMatchObject(salesForceLead)
 })
