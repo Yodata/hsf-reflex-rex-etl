@@ -1,2 +1,3 @@
 #!/usr/bin/env node
-console.log('Take two asprin and call me in the morning')
+let env = require('dotenv').config()
+console.dir(env)
